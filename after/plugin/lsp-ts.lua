@@ -74,4 +74,3 @@ require("typescript-tools").setup({
 		tsserver_file_preferences = {},
 	},
 })
-

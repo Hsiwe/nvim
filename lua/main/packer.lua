@@ -224,4 +224,15 @@ return require("packer").startup(function(use)
 			vim.g.codeium_manual = true
 		end,
 	})
+
+    -- Uncomment for keybinding debugging
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	config = function()
+	-- 		vim.o.timeout = true
+	-- 		vim.o.timeoutlen = 300
+	-- 		require("which-key").setup({
+	-- 		})
+	-- 	end,
+	-- })
 end)

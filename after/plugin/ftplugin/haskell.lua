@@ -64,6 +64,9 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("i", "<c-h>", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
+    -- Unmapping ghc keybinding which stands for ReplTools from haskel-tools
+    -- library. I don't need it and I'm used to my "gh" mapping for hover.
+	vim.keymap.del("n", "ghc")
 end
 
 vim.g.haskell_tools = {
