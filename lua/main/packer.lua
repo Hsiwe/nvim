@@ -225,7 +225,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-    -- Uncomment for keybinding debugging
+	-- Uncomment for keybinding debugging
 	-- use({
 	-- 	"folke/which-key.nvim",
 	-- 	config = function()
@@ -235,4 +235,11 @@ return require("packer").startup(function(use)
 	-- 		})
 	-- 	end,
 	-- })
+
+	use({
+		"Equilibris/nx.nvim",
+		requires = {
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 end)
