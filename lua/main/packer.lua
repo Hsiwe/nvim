@@ -11,7 +11,11 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
+		},
 	})
 
 	use({
@@ -104,7 +108,7 @@ return require("packer").startup(function(use)
 				},
 			})
 
-			conform.formatters.eslint_d = { command = "C:\\Users\\admin\\AppData\\Roaming\\nvm\\v20.9.0\\eslint_d.CMD" }
+			conform.formatters.eslint_d = { command = "eslint_d" }
 
 			vim.keymap.set({ "n", "v" }, "<leader>f", function()
 				conform.format({
@@ -251,4 +255,18 @@ return require("packer").startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
+
+	use({
+		"NeogitOrg/neogit",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = function()
+			require("neogit").setup({})
+		end,
+	})
+
+	use("nvim-tree/nvim-web-devicons")
 end)
