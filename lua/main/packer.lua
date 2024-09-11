@@ -100,7 +100,7 @@ return require("packer").startup(function(use)
 			conform.setup({
 				formatters_by_ft = {
 					javascript = { "eslint_d" },
-					typescript = { "eslint_d" },
+					typescript = { "eslint_d", "prettierd" },
 					javascriptreact = { "eslint_d" },
 					typescriptreact = { "eslint_d" },
 					json = { "prettier" },
@@ -109,9 +109,11 @@ return require("packer").startup(function(use)
 			})
 
 			conform.formatters.eslint_d = { command = "eslint_d" }
+			conform.formatters.prettierd = { command = "prettierd" }
 
 			vim.keymap.set({ "n", "v" }, "<leader>f", function()
 				conform.format({
+					bufnr = vim.api.nvim_get_current_buf(),
 					lsp_fallback = true,
 					async = false,
 					timeout_ms = 500,
@@ -269,4 +271,8 @@ return require("packer").startup(function(use)
 	})
 
 	use("nvim-tree/nvim-web-devicons")
+
+	use({
+		"stevearc/overseer.nvim",
+	})
 end)
