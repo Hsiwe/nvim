@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>a", function()
+    local filename = require("arrow.utils").get_current_buffer_path()
+    require("arrow.persist").save(filename)
+end)
+vim.keymap.set("n", "<leader>c", require("arrow.commands").commands.toggle_current_line_for_buffer)

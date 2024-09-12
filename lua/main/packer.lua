@@ -76,11 +76,6 @@ return require("packer").startup(function(use)
 	})
 
 	use("MunifTanjim/prettier.nvim")
-	use({
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
 
 	use({
 		"folke/todo-comments.nvim",
@@ -100,7 +95,7 @@ return require("packer").startup(function(use)
 			conform.setup({
 				formatters_by_ft = {
 					javascript = { "eslint_d" },
-					typescript = { "eslint_d", "prettierd" },
+					typescript = { "eslint_d" },
 					javascriptreact = { "eslint_d" },
 					typescriptreact = { "eslint_d" },
 					json = { "prettier" },
@@ -274,5 +269,16 @@ return require("packer").startup(function(use)
 
 	use({
 		"stevearc/overseer.nvim",
+	})
+
+	use({
+		"otavioschwanck/arrow.nvim",
+		config = function()
+			require("arrow").setup({
+				show_icons = true,
+				leader_key = "<C-e>",
+				buffer_leader_key = "<C-w>",
+			})
+		end,
 	})
 end)
