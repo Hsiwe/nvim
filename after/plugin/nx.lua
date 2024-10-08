@@ -1,4 +1,3 @@
-print("hello")
 require("nx").setup({
 	nx_cmd_root = "pnpm nx",
 
