@@ -301,4 +301,13 @@ return require("packer").startup(function(use)
 			require("substitute").setup()
 		end,
 	})
+
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+		end,
+	})
 end)
