@@ -33,6 +33,19 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("nvim-treesitter/playground", { run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-context")
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+
+	use({
+		"chrisgrieser/nvim-various-textobjs",
+		config = function()
+			require("various-textobjs").setup({ useDefaultKeymaps = true })
+		end,
+	})
+
 	use("mbbill/undotree")
 	use("machakann/vim-sandwich")
 	use("tpope/vim-fugitive")
