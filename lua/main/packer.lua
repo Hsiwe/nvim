@@ -261,9 +261,9 @@ return require("packer").startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_filetypes = { "markdown", "puml" }
 		end,
-		ft = { "markdown" },
+		ft = { "markdown", "puml" },
 	})
 
 	use({
@@ -307,6 +307,30 @@ return require("packer").startup(function(use)
 		config = function()
 			require("auto-session").setup({
 				suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+		end,
+	})
+
+	use({
+		"epwalsh/obsidian.nvim",
+		tag = "*",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("obsidian").setup({
+				workspaces = {
+					{
+						name = "main",
+						path = function()
+							if vim.loop.os_uname().sysname == "Linux" then
+								return "/mnt/c/Users/admin/OneDrive/ObsidianVault/main"
+							else
+								return "C:\\Users\\admin\\OneDrive\\ObsidianVault\\main"
+							end
+						end,
+					},
+				},
 			})
 		end,
 	})
