@@ -30,6 +30,9 @@ cmp.setup({
 			},
 		},
 	},
+	enabled = function()
+		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+	end,
 	mapping = cmp.mapping.preset.insert({
 		["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
@@ -47,4 +50,10 @@ cmp.setup({
 			c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 		}),
 	}),
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+	sources = {
+		{ name = "dap" },
+	},
 })

@@ -171,7 +171,10 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	-- use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+	use({
+		"mxsdev/nvim-dap-vscode-js",
+		requires = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
+	})
 	-- use({
 	-- "microsoft/vscode-js-debug",
 	-- opt = true,
@@ -224,6 +227,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "saadparwaiz1/cmp_luasnip" })
+	use({ "rcarriga/cmp-dap" })
 	use({ "rafamadriz/friendly-snippets" })
 	use({
 		"letieu/btw.nvim",
