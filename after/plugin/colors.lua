@@ -6,7 +6,7 @@ builtin.setup({
 })
 
 require("eldritch").setup({
-	transparent = true, -- Enable this to disable setting the background color
+	transparent = false, -- Enable this to disable setting the background color
 	styles = {
 		comments = { italic = false },
 		keywords = { italic = false },
