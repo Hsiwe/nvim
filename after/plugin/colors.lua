@@ -11,6 +11,9 @@ require("eldritch").setup({
 		comments = { italic = false },
 		keywords = { italic = false },
 	},
+	on_colors = function(colors)
+		colors.fg_gutter_light = colors.fg_gutter
+	end,
 })
 
 vim.cmd([[colorscheme eldritch]])

@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 	use({
 		"chrisgrieser/nvim-various-textobjs",
 		config = function()
-			require("various-textobjs").setup({ useDefaultKeymaps = true })
+			require("various-textobjs").setup({ keymaps = { useDefaults = true } })
 		end,
 	})
 
@@ -165,7 +165,6 @@ return require("packer").startup(function(use)
 	use({
 		"stevearc/aerial.nvim",
 	})
-	use("cedarbaum/fugitive-azure-devops.vim")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -175,29 +174,6 @@ return require("packer").startup(function(use)
 		"mxsdev/nvim-dap-vscode-js",
 		requires = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
 	})
-	-- use({
-	-- "microsoft/vscode-js-debug",
-	-- opt = true,
-	-- run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-	-- })
-	-- use({
-	-- 	"mfussenegger/nvim-dap",
-	-- 	opt = true,
-	-- 	module = { "dap" },
-	-- 	requires = {
-	-- 		"theHamsta/nvim-dap-virtual-text",
-	-- 		"rcarriga/nvim-dap-ui",
-	-- 		"nvim-telescope/telescope-dap.nvim",
-	-- 		{ "jbyuki/one-small-step-for-vimkind", module = "osv" },
-	-- 		{ "mxsdev/nvim-dap-vscode-js", module = { "dap-vscode-js" } },
-	-- 		{
-	-- 			"microsoft/vscode-js-debug",
-	-- 			opt = true,
-	-- 			run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-	-- 		},
-	-- 	},
-	-- 	disable = false,
-	-- })
 
 	use("lewis6991/gitsigns.nvim")
 	use({
@@ -253,13 +229,6 @@ return require("packer").startup(function(use)
 	-- 		})
 	-- 	end,
 	-- })
-
-	use({
-		"Equilibris/nx.nvim",
-		requires = {
-			"nvim-telescope/telescope.nvim",
-		},
-	})
 
 	use({
 		"iamcco/markdown-preview.nvim",
