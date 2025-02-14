@@ -172,7 +172,12 @@ return require("packer").startup(function(use)
 
 	use({
 		"mxsdev/nvim-dap-vscode-js",
-		requires = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
+		requires = { "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
+	})
+
+	use({
+		"mfussenegger/nvim-dap",
+		commit = "580d6e526358afd0e4bba053e68fd59cf581a161",
 	})
 
 	use("lewis6991/gitsigns.nvim")
@@ -305,6 +310,13 @@ return require("packer").startup(function(use)
 					},
 				},
 			})
+		end,
+	})
+
+	use({
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
 		end,
 	})
 end)
