@@ -263,6 +263,10 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"ggandor/leap.nvim",
+	})
+
+	use({
 		"otavioschwanck/arrow.nvim",
 		config = function()
 			require("arrow").setup({
