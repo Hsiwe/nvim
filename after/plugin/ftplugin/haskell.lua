@@ -3,7 +3,7 @@ local telescope_builtin = require("telescope.builtin")
 local on_attach = function(_, bufnr)
 	local ht = require("haskell-tools")
 
-	local opts = { buffer = bufnr, remap = false }
+	local opts = { buffer = bufnr, remap = true }
 
 	require("lsp-overloads").setup(client, {
 		display_automatically = false,
@@ -52,7 +52,7 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_prev()
 	end, opts)
-	vim.keymap.set("n", "<leader>vca", function()
+	vim.keymap.set("n", "<leader>vc", function()
 		vim.lsp.buf.code_action()
 	end, opts)
 	vim.keymap.set("n", "<leader>vr", function()
@@ -64,12 +64,20 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("i", "<c-h>", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
-    -- Unmapping ghc keybinding which stands for ReplTools from haskel-tools
-    -- library. I don't need it and I'm used to my "gh" mapping for hover.
+	-- Unmapping ghc keybinding which stands for ReplTools from haskel-tools
+	-- library. I don't need it and I'm used to my "gh" mapping for hover.
 	vim.keymap.del("n", "ghc")
 end
 
 vim.g.haskell_tools = {
+	tools = {
+		tags = {
+			enable = function()
+				print(vim.fn.executable("fast-tags"))
+				return vim.fn.executable("fast-tags") == 1
+			end,
+		},
+	},
 	hls = {
 		on_attach = on_attach,
 		settings = {
