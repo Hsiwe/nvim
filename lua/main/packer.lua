@@ -254,6 +254,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("neogit").setup({})
 		end,
+		commit = "7b3cd7c90dffad61b99570c17cd84d141f9b9ef7",
 	})
 
 	use("nvim-tree/nvim-web-devicons")
