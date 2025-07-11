@@ -73,7 +73,6 @@ vim.g.haskell_tools = {
 	tools = {
 		tags = {
 			enable = function()
-				print(vim.fn.executable("fast-tags"))
 				return vim.fn.executable("fast-tags") == 1
 			end,
 		},
