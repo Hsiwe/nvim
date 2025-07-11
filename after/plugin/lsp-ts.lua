@@ -1,6 +1,7 @@
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = { "eslint" },
+	automatic_enable = false,
 })
 local telescope_builtin = require("telescope.builtin")
 
