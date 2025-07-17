@@ -3,6 +3,7 @@ local lga_actions = require("telescope-live-grep-args.actions")
 local actions = require("telescope.actions")
 local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
+
 telescope.setup({
 	defaults = {
 		path_display = { "truncate" },
@@ -34,6 +35,8 @@ telescope.setup({
 	},
 })
 
+telescope.load_extension("project")
+telescope.load_extension("aerial")
 telescope.load_extension("live_grep_args")
 telescope.load_extension("ui-select")
 

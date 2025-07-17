@@ -1,3 +1,4 @@
 require("main.remap")
 require("main.set")
-require("main.packer_init")
+require("main.lazy_init")
+require("main.lazy")
