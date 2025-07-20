@@ -237,6 +237,18 @@ require("lazy").setup({
 			lazy = false,
 			opts = {
 				suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+				cwd_change_handling = true,
+				post_cwd_changed_cmds = {
+					function()
+						local builtin = require("telescope.builtin")
+						local auto_session = require("auto-session")
+						if auto_session.session_exists_for_cwd() then
+							return
+						end
+
+						builtin.git_files()
+					end,
+				},
 			},
 		},
 		{

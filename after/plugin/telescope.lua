@@ -2,7 +2,9 @@ local telescope = require("telescope")
 local lga_actions = require("telescope-live-grep-args.actions")
 local actions = require("telescope.actions")
 local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-
+local project_actions = require("telescope._extensions.project.actions")
+local project_utils = require("telescope._extensions.project.utils")
+local builtin = require("telescope.builtin")
 
 telescope.setup({
 	defaults = {
@@ -32,6 +34,14 @@ telescope.setup({
 				-- even more opts
 			}),
 		},
+		project = {
+			on_project_selected = function(prompt_bufnr)
+				local project_path = project_actions.get_selected_path(prompt_bufnr)
+				actions._close(prompt_bufnr, true)
+				project_utils.change_project_dir(project_path, "cd")
+			end,
+			cd_scope = { "global" },
+		},
 	},
 })
 
@@ -39,8 +49,6 @@ telescope.load_extension("project")
 telescope.load_extension("aerial")
 telescope.load_extension("live_grep_args")
 telescope.load_extension("ui-select")
-
-local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})
