@@ -1,4 +1,5 @@
 require("main.remap")
+require("main.diagnostics")
 require("main.set")
 require("main.lazy_init")
 require("main.lazy")
